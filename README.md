@@ -1,8 +1,7 @@
 # Part I
 ### SQLZoo Progress
-
-    + (Part II Tutorial 5)
-    + Further Study: More on Subqueries (Tutorial 4)
++ (Part II Tutorial 5)
++ Further Study: More on Subqueries (Tutorial 4)
   
 ```
 https://sqlzoo.net/progress/960846961797
