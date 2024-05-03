@@ -1,7 +1,9 @@
 # Part I
 ### SQLZoo Progress
+
     + (Part II Tutorial 5)
     + Further Study: More on Subqueries (Tutorial 4)
+  
 ```
 https://sqlzoo.net/progress/960846961797
 ```
@@ -246,7 +248,7 @@ SELECT category,COUNT(*) FROM analytics GROUP BY category HAVING COUNT(*)>300;
 SELECT app_name, reviews, min_installs, min_installs/reviews AS proportion FROM analytics WHERE min_installs>=100000 ORDER BY proportion DESC;
 ```
 ---
-### FS1) Find the name and rating of the top rated apps in each category, among apps that have been installed at least 50,000 times.
+### Further Study 1) Find the name and rating of the top rated apps in each category, among apps that have been installed at least 50,000 times.
 
 --180 results
 ```sql
@@ -283,14 +285,14 @@ SELECT app_name, rating, category, min_installs
 SELECT app_name, rating, category FROM (SELECT app_name, category, rating, ROW_NUMBER() OVER (PARTITION BY category ORDER BY rating DESC) AS ranking FROM analytics WHERE min_installs >= 50000) AS ranked_apps WHERE ranking = 1;
 ```
 ---
-### FS2) Find all the apps that have a name similar to "facebook".
+### Further Study 2) Find all the apps that have a name similar to "facebook".
 
 ```sql
 SELECT app_name FROM analytics WHERE app_name ~* 'facebook';
 SELECT app_name FROM analytics WHERE app_name ILIKE '%facebook%';
 ```
 ---
-### FS3) Find all the apps that have more than 1 genre.
+### Further Study 3) Find all the apps that have more than 1 genre.
 
 ```sql
 SELECT COUNT(*) FROM analytics WHERE array_length(genres,1) > 1;
@@ -300,7 +302,7 @@ SELECT * FROM analytics WHERE array_length(genres, 1) = 2;
 SELECT COUNT(*) FROM analytics WHERE array_length(genres, 1) = 2;
 ```
 ---
-### FS4) Find all the apps that have education as one of their genres.
+### Further Study 4) Find all the apps that have education as one of their genres.
 
 ```sql
 SELECT app_name,genres,category FROM analytics WHERE '{Education}' <@ genres;
